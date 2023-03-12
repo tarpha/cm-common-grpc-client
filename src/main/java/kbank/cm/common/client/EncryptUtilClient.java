@@ -3,8 +3,6 @@ package kbank.cm.common.client;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-import java.util.logging.Logger;
-
 import kbank.cm.common.EncryptUtilGrpc;
 import kbank.cm.common.EncryptUtilGrpc.EncryptUtilBlockingStub;
 import kbank.cm.common.EncryptUtilOuterClass.Encrypt;
