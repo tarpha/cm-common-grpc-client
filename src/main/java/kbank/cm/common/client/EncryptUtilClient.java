@@ -13,7 +13,7 @@ import kbank.cm.common.EncryptUtilOuterClass.Plain;
 public class EncryptUtilClient {
     public static void main(String[] args) throws InterruptedException {
         ManagedChannel channel = ManagedChannelBuilder
-            .forAddress("localhost", 50051)
+            .forAddress("10.0.1.45", 50051)
             .usePlaintext()
             .build();
         
