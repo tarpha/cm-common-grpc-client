@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('Build image') {
-    app = docker.build("ghcr.io/my-image")
+    app = docker.build("ghcr.io/cm-common-grpc-client")
   }
   stage('Push image') {
     docker.withRegistry('https://ghcr.io') {
