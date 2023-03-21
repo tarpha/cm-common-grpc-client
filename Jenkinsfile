@@ -3,10 +3,10 @@ node {
     checkout scm
   }
   stage('Build image') {
-    app = docker.build("ghcr.io/cm-common-grpc-client")
+    app = docker.build("ghcr.io/tarpha/cm-common-grpc-client")
   }
   stage('Push image') {
-    docker.withRegistry('https://ghcr.io') {
+    docker.withRegistry('https://ghcr.io/tarpha') {
     //   app.push("${env.BUILD_NUMBER}")
       app.push("0.0.1")
     }
