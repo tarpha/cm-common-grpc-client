@@ -9,11 +9,11 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-//	mavenCentral()
- 	maven {
-        allowInsecureProtocol true
-        url 'http://10.0.1.45:8081/repository/maven-public/'
-    }
+	mavenCentral()
+ 	// maven {
+    //     allowInsecureProtocol true
+    //     url 'http://10.0.1.45:8081/repository/maven-public/'
+    // }
 }
 
 def grpcVersion = '1.53.0'
