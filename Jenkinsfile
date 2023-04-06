@@ -39,14 +39,16 @@ pipeline {
           // app = docker.build("ghcr.io/tarpha/${env.JOB_NAME}")
         }
       }
-      // stage('Push image') {
-      //   steps {
-      //     docker.withRegistry('https://ghcr.io/tarpha', 'ghcr') {
-      //       app.push("${env.BUILD_NUMBER}")
-      //       app.push("0.0.1")
-      //     }
-      //   }
-      // }
+      stage('Push image') {
+        steps {
+          script {
+            docker.withRegistry('https://ghcr.io/tarpha', 'ghcr') {
+              dockerImage.push("${env.BUILD_NUMBER}")
+              dockerImage.push("0.0.1")
+            }
+          }
+        }
+      }
       post {
         always {
           cleanWs()
