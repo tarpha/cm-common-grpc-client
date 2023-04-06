@@ -1,33 +1,15 @@
 package kbank.cm.common.client;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-
-import kbank.cm.common.EncryptUtilGrpc;
-import kbank.cm.common.EncryptUtilGrpc.EncryptUtilBlockingStub;
-import kbank.cm.common.EncryptUtilOuterClass.Encrypt;
-import kbank.cm.common.EncryptUtilOuterClass.Plain;
+import cm.common.grpc.lib.EncryptUtil;
 
 public class EncryptUtilClient {
     public static void main(String[] args) throws InterruptedException {
-        ManagedChannel channel = ManagedChannelBuilder
-            .forAddress("10.0.1.45", 50051)
-            .usePlaintext()
-            .build();
-        
-        EncryptUtilBlockingStub stub = EncryptUtilGrpc.newBlockingStub(channel);
+        String encStr = EncryptUtil.encrypt("test");
 
-        Encrypt encrypt = stub.encrypt(
-            Plain.newBuilder()
-            .setValue("test")
-            .build());
+        System.out.println("encrypt: " + encStr);
 
-        System.out.println("encrypt: " + encrypt.getValue());
+        String decStr = EncryptUtil.decrypt(encStr);
 
-        Plain plain = stub.decrypt(encrypt);
-
-        System.out.println("decrypt: " + plain.getValue());
-
-        channel.shutdown();
+        System.out.println("decrypt: " + decStr);
     }
 }

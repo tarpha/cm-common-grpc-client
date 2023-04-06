@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
     id 'application'
-	id "com.google.protobuf" version "0.9.2"
+	// id "com.google.protobuf" version "0.9.2"
 }
 
 group = 'kbank.cm'
@@ -9,54 +9,56 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	mavenCentral()
- 	// maven {
-    //     allowInsecureProtocol true
-    //     url 'http://10.0.1.45:8081/repository/maven-public/'
-    // }
+	// mavenCentral()
+ 	maven {
+        allowInsecureProtocol true
+        url 'http://10.0.1.45:8081/repository/maven-public/'
+    }
 }
 
-def grpcVersion = '1.53.0'
-def protobufVersion = '3.21.7'
-def protocVersion = protobufVersion
+// def grpcVersion = '1.53.0'
+// def protobufVersion = '3.21.7'
+// def protocVersion = protobufVersion
 
 dependencies {
-    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
-    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    // implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    // implementation "io.grpc:grpc-stub:${grpcVersion}"
 
-    implementation "com.google.protobuf:protobuf-java:${protobufVersion}"
+    // implementation "com.google.protobuf:protobuf-java:${protobufVersion}"
 
-    compileOnly "org.apache.tomcat:annotations-api:6.0.53"
+    implementation 'cm.common.grpc:lib:0.0.3-20230325.154903-1'
 
-    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+    // compileOnly "org.apache.tomcat:annotations-api:6.0.53"
 
-    testImplementation "io.grpc:grpc-testing:${grpcVersion}"
+    // runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    // testImplementation "io.grpc:grpc-testing:${grpcVersion}"
 }
 
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:${protocVersion}"
-    }
-    plugins {
-        grpc { 
-            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" 
-        }
-    }
-    generateProtoTasks {
-        all()*.plugins { 
-            grpc {} 
-        }
-    }
-}
+// protobuf {
+//     protoc {
+//         artifact = "com.google.protobuf:protoc:${protocVersion}"
+//     }
+//     plugins {
+//         grpc { 
+//             artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" 
+//         }
+//     }
+//     generateProtoTasks {
+//         all()*.plugins { 
+//             grpc {} 
+//         }
+//     }
+// }
 
-sourceSets {
-    main {
-        java {
-            srcDirs 'build/generated/source/proto/main/grpc'
-            srcDirs 'build/generated/source/proto/main/java'
-        }
-    }
-}
+// sourceSets {
+//     main {
+//         java {
+//             srcDirs 'build/generated/source/proto/main/grpc'
+//             srcDirs 'build/generated/source/proto/main/java'
+//         }
+//     }
+// }
 
 task runApp(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
