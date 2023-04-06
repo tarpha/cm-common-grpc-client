@@ -19,7 +19,8 @@
 
 pipeline {
     environment { 
-        repository = "ghcr.io/tarpha/${env.JOB_NAME}"  //docker hub id와 repository 이름
+        repository = "ghcr.io/tarpha/$JOB_NAME"  //docker hub id와 repository 이름
+        dockerImage = '' 
     }
     agent any
     stages {
