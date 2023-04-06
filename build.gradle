@@ -26,7 +26,7 @@ dependencies {
 
     // implementation "com.google.protobuf:protobuf-java:${protobufVersion}"
 
-    implementation 'cm.common.grpc:lib:0.0.3-20230325.154903-1'
+    implementation 'cm.common.grpc:lib:0.0.3-20230406.115402-1@jar'
 
     // compileOnly "org.apache.tomcat:annotations-api:6.0.53"
 
