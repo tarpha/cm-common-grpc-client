@@ -11,4 +11,8 @@ node {
       app.push("0.0.1")
     }
   }
+  stage('Clean') {
+    deleteDir()
+    echo "End"
+  }
 }
