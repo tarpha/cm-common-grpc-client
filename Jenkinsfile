@@ -32,7 +32,9 @@ pipeline {
       stage('Build image') {
         
         steps {
-          dockerImage = docker.build repository + ":$BUILD_NUMBER" 
+          script { 
+            dockerImage = docker.build repository + ":$BUILD_NUMBER" 
+          }
 
           // app = docker.build("ghcr.io/tarpha/${env.JOB_NAME}")
         }
