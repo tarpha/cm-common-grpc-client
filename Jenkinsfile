@@ -57,4 +57,4 @@
 // }
 @Library('my-shared-library') _
 
-loadDefault
+loadDefault "test"
