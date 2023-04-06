@@ -19,7 +19,7 @@
 
 pipeline {
     agent any
-    stages {
+    steps {
       stage('Clone repository') {
         checkout scm
       }
